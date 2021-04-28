@@ -137,10 +137,14 @@ GET
             { 
                 "order_id" : 1,
                 "order_name" : "감자",
+                "price" : 10000,
+                "count" : 1000
             },
             {
                 "order_id: 2,
-                "order_name" : "토마토"
+                "order_name" : "토마토",
+                "price" : 10000,
+                "count" : 1000
             },
             {
                 .
