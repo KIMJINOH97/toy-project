@@ -17,9 +17,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String name;
-
-    @OneToMany(mappedBy = "user")
-    private List<Basket> orderLists;
+//
+//    @OneToMany(mappedBy = "user")
+//    private List<Basket> orderLists;
 
     public User(UserPostRequest request){
         this.name = request.getName();

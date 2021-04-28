@@ -23,4 +23,12 @@ public class Basket {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private OrderList orderList;
+
+    public void setUser(User user){
+        this.user = user;
+    }
+
+    public void setOrderList(OrderList orderList){
+        this.orderList = orderList;
+    }
 }
