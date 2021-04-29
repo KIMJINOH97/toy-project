@@ -60,12 +60,14 @@ GET
             { 
                 "order_id" : 1,
                 "order_name" : "감자",
+                "url" : "http://localhost:8080/api/files/1",
                 "price" : 10000,
                 "count" : 1000
             },
             {
                 "order_id: 2,
                 "order_name" : "토마토",
+                "url" : "http://localhost:8080/api/files/2",
                 "price" : 10000,
                 "count" : 1000
             }
@@ -137,12 +139,14 @@ GET
             { 
                 "order_id" : 1,
                 "order_name" : "감자",
+                "url" : "http://localhost:8080/api/files/1",
                 "price" : 10000,
                 "count" : 1000
             },
             {
                 "order_id: 2,
                 "order_name" : "토마토",
+                "url" : "http://localhost:8080/api/files/2",
                 "price" : 10000,
                 "count" : 1000
             },
