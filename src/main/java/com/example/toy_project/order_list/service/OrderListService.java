@@ -10,6 +10,7 @@ import org.hibernate.criterion.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -22,18 +23,21 @@ import java.util.Optional;
 public class OrderListService {
     private final OrderListRepository orderListRepository;
 
+    @Transactional
     public OrderResponse save(MultipartFile file, String name, String price, String count) throws IOException {
         byte [] picture = file.getBytes();
         OrderList orderList = new OrderList(picture, name, Integer.parseInt(price), Integer.parseInt(count));
         return new OrderResponse(orderListRepository.save(orderList));
     }
 
+    @Transactional(readOnly = true)
     public List<OrderResponse> findAll(){
         List<OrderResponse> orderResponses = new ArrayList<>();
         orderListRepository.findAll().forEach((order)-> orderResponses.add(new OrderResponse(order)));
         return orderResponses;
     }
 
+    @Transactional(readOnly = true)
     public OrderResponse findById(Long id){
         Optional<OrderList> orderList = orderListRepository.findById(id);
         if (orderList == null){
@@ -43,6 +47,7 @@ public class OrderListService {
         }
     }
 
+    @Transactional(readOnly = true)
     public ResponseEntity<byte []> findPictureById(Long id){
         OrderList orderList = orderListRepository.findById(id).get();
         return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(orderList.getPicture());
