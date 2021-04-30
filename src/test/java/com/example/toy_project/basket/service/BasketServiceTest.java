@@ -67,4 +67,9 @@ class BasketServiceTest {
         assertThat(userBasket.size()).isEqualTo(2);
 
     }
+
+    void delete(){
+
+    }
+
 }

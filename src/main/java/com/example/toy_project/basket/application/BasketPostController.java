@@ -2,10 +2,7 @@ package com.example.toy_project.basket.application;
 
 import com.example.toy_project.basket.service.BasketService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,4 +16,10 @@ public class BasketPostController {
     public List<BasketResponse> findUserBasket(@PathVariable(name = "user_id") Long user_id){
         return basketService.findUserBasket(user_id);
     }
+
+    @DeleteMapping("/basket/{id}")
+    public Long delete(@PathVariable Long id){
+        return basketService.delete(id);
+    }
+
 }
