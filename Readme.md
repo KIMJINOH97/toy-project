@@ -202,7 +202,7 @@ DELETE
 {
     "status_code": 200,
     "message": "장바구니에서 삭제 되었습니다.",
-    data: null
+    "data": null
 }
 ```
 
