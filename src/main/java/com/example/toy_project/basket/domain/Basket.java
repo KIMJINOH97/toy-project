@@ -4,6 +4,7 @@ import com.example.toy_project.order_list.domain.OrderList;
 import com.example.toy_project.user.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 
@@ -18,10 +19,12 @@ public class Basket {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private OrderList orderList;
 
     public void setUser(User user){
