@@ -18,13 +18,12 @@ public class UserService {
 
     @Transactional
     public UserPostResponse save(UserPostRequest request){
-        Optional<User> findUser = userRepository.findByName(request.getName());
-        System.out.println(findUser);
-        if (findUser == null) {
-            // 찾는 User가 없으면 새로 만들어 줌
-            return new UserPostResponse(userRepository.save(new User(request)));
+        Optional<User> user = userRepository.findByName(request.getName());
+        if (user.isPresent()){
+            return new UserPostResponse(user.get());
         }
-        return new UserPostResponse(findUser.get());
+        // 찾는 User가 없으면 새로 만들어 줌
+        return new UserPostResponse(userRepository.save(new User(request)));
     }
 
 }

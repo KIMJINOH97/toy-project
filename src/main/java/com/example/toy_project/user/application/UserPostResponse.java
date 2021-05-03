@@ -14,4 +14,5 @@ public class UserPostResponse {
         this.id = user.getId();
         this.name = user.getName();
     }
+    
 }
