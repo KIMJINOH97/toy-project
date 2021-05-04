@@ -21,7 +21,11 @@ public class ApiForm<T> {
         return new ApiForm<>(200, data, message);
     }
 
-    public static <T> ApiForm<T> error(String message){
+    public static ApiForm<?> failed(Throwable throwable) {
+        return new ApiForm<>(400, null, throwable.getMessage());
+    }
+
+    public static ApiForm<?> failed(String message){
         return new ApiForm<>(400, null, message);
     }
 }

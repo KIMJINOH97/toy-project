@@ -21,6 +21,11 @@ public class UserPostController {
 
     @GetMapping("/user/{id}/basket/{order_id}")
     public ApiForm<?> saveBasket(@PathVariable Long id, @PathVariable Long order_id){
-        return succeed(userService.saveBasket(id, order_id), "장바구니에 담았습니다.");
+        return userService.saveBasket(id, order_id);
+    }
+
+    @DeleteMapping("/user/{id}/basket/{order_id}")
+    public ApiForm<?> deleteBasket(@PathVariable Long id, @PathVariable Long order_id){
+        return userService.deleteBasket(id, order_id);
     }
 }
