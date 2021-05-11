@@ -19,12 +19,10 @@ public class Basket {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private OrderList orderList;
 
     public void setUser(User user){

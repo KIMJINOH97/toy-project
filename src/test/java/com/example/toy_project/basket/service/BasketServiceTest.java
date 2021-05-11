@@ -51,6 +51,7 @@ class BasketServiceTest {
 
         //when
         userRepository.save(user);
+
         orderListRepository.save(orderList1);
         orderListRepository.save(orderList2);
 
