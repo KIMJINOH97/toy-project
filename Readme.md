@@ -3,8 +3,10 @@ MySQL 8.0 (AWS RDS 이용)
 
 ## 배포 URL
 AWS EC2 배포 <br>
-base: http://3.35.26.66:8080
+base: http://3.35.26.66:8080 현재 서버 API 주소<br>
+<AWS 과금 때문에 잠시 닫음> 프론트 구현 후 다시 배포할 예정<br>
 docker(배포 예정)
+
 
 #API 명세서
 
