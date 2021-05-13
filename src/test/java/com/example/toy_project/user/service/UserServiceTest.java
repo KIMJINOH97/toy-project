@@ -25,10 +25,10 @@ class UserServiceTest {
     @Autowired private OrderListRepository orderListRepository;
     @Autowired private BasketRepository basketRepository;
 
-    @AfterEach
-    public void delete(){
-        userRepository.deleteAll();
-    }
+//    @AfterEach
+//    public void delete(){
+//        userRepository.deleteAll();
+//    }
 
     @Test
     public void save(){
@@ -60,9 +60,10 @@ class UserServiceTest {
         OrderList orderList = new OrderList(order_name, price, count);
 
         //when
-        userRepository.save(user);
+        User u = userRepository.save(user);
+        System.out.println(u.getId());
         orderListRepository.save(orderList);
-        userService.saveBasket(1L, 1L);
+        userService.saveBasket(u.getId(), 1L);
 
         //then
         Basket basket = basketRepository.findById(1L).get();
