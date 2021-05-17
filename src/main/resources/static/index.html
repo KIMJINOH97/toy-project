@@ -3,25 +3,30 @@
     <head>
         <meta charset="UTF-8">
         <title>🚂 toy project</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<!--        <script src="https://unpkg.com/vue/dist/vue.js"></script>-->
-        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <style>
+            html{
+                padding: 0px;
+            }
+            input{
+                all: unset;
+            }
+            body {
+                margin: 0px;
+                height: 100vh;
+                background-color: #258fff;
+            }
+        </style>
+        <link rel="stylesheet" href="index.css"></link>
     </head>
     <body>
-<!--        <h1 id="app">{{message}}</h1>-->
         <script src="./index.js"></script>
-        <div id="app">
-            <h1>Hello App!</h1>
-            <p>
-                <!-- use router-link component for navigation. -->
-                <!-- specify the link by passing the `to` prop. -->
-                <!-- <router-link> will be rendered as an `<a>` tag by default -->
-                <router-link to="/foo">Go to Foo</router-link>
-                <router-link to="/bar">Go to Bar</router-link>
-            </p>
-            <!-- route outlet -->
-            <!-- component matched by the route will render here -->
-            <router-view></router-view>
+        <div id="toy-container">
+            <h1 class="toy-title">지노의 Toy Project</h1>
+            <label>이름</label>
+            <div>
+                <input class="name-input" type="text" placeholder="이름을 입력해주세요" />
+                <input class="name-submit" type="submit" value="입력"/>
+            </div>
         </div>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- 액시오스 라이브러리 로딩 -->
     </body>
