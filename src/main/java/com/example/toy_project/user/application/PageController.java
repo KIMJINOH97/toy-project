@@ -9,4 +9,9 @@ public class PageController {
     public String index(){
         return "index.html";
     }
+
+    @GetMapping("/order-list")
+    public String orders(){
+        return "order.html";
+    }
 }
