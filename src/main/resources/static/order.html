@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Order-list</title>
-</head>
-<body>
-  <div>주문 목록 리스트</div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Order-list</title>
+        <style>
+            body{
+                padding: 16px;
+            }
+            ul, li, input{
+                all: unset
+            }
+        </style>
+        <link rel="stylesheet" href="order.css"></link>
+    </head>
+    <body>
+        <div class="title">
+            <div class="order-title">상품 목록</div>
+            <div class="order-title">내 장바구니</div>
+        </div>
+        <ul class="order-classify">
+            <li class="classify">No</li>
+            <li class="classify">사진</li>
+            <li class="classify">상품명</li>
+            <li class="classify">가격</li>
+        </ul>
+        <ul class="order-container"></ul>
+        <script src="order.js"></script>
+    </body>
 </html>
