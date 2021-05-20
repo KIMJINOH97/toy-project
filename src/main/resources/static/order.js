@@ -1,7 +1,13 @@
 let URL = 'http://localhost:8080'
 
-let orderContainer = document.querySelector('.order-container')
+let orderContainer = document.querySelector('.order-container');
+let basketButton = document.querySelector('.basket-button');
 
+basketButton.addEventListener('click', goBasket);
+
+function goBasket(e){
+    window.location.href = `${URL}/basket`;
+}
 
 async function getOrderList(){
     try {
