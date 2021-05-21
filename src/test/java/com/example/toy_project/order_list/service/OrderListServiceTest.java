@@ -45,7 +45,7 @@ class OrderListServiceTest {
         orderListRepository.save(new OrderList(name2, price, count));
 
         //then
-        assertThat(orderListService.findById(2L).getName()).isEqualTo(name2);
+        assertThat(orderListService.findById(2L).getOrderName()).isEqualTo(name2);
     }
 
 }

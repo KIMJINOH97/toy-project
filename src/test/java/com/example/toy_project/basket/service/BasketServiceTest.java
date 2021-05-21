@@ -61,7 +61,7 @@ class BasketServiceTest {
         // then
         List<BasketResponse> userBasket = basketService.findUserBasket(1L);
         for (BasketResponse response: userBasket){
-            System.out.println("name : " + response.getOrder_name());
+            System.out.println("name : " + response.getOrderName());
             System.out.println("Price = " + response.getPrice());
             System.out.println("count = " + response.getCount());
         }

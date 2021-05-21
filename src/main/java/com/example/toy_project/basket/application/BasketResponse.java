@@ -1,20 +1,23 @@
 package com.example.toy_project.basket.application;
 
 import com.example.toy_project.order_list.domain.OrderList;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class BasketResponse {
-    private Long order_id;
-    private String order_name;
+    private Long orderId;
+    private String orderName;
     private Integer price;
     private Integer count;
 
     public BasketResponse(OrderList orderList){
-        this.order_id = orderList.getId();
-        this.order_name = orderList.getName();
+        this.orderId = orderList.getId();
+        this.orderName = orderList.getName();
         this.price = orderList.getPrice();
         this.count = orderList.getCount();
     }
