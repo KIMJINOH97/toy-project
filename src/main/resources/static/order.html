@@ -5,7 +5,8 @@
         <title>Order-list</title>
         <style>
             body{
-                padding: 16px;
+                margin: 0px;
+                padding: 0px;
             }
             ul, li, input{
                 all: unset
@@ -15,16 +16,19 @@
     </head>
     <body>
         <div class="title">
-            <div id="order-title">상품 목록</div>
-            <input id="order-title" class="basket-button" type="button" value="🧺 내 장바구니" />
+            <div class="order-title">🥦 상품 목록</div>
+            <input class="order-title" type="button" value="🧺 장바구니" />
         </div>
-        <ul class="order-classify">
-            <li class="classify">No</li>
-            <li class="classify">사진</li>
-            <li class="classify">상품명</li>
-            <li class="classify">가격</li>
-        </ul>
-        <ul class="order-container"></ul>
+        <div id="order-container">
+            <ul class="order-classify">
+                <li class="classify">No</li>
+                <li class="classify">사진</li>
+                <li class="classify">상품명</li>
+                <li class="classify">가격</li>
+                <li class="classify"></li>
+            </ul>
+            <ul class="order-list"></ul>
+        </div>
         <script src="order.js"></script>
     </body>
 </html>

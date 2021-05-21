@@ -1,8 +1,9 @@
 let URL = 'http://localhost:8080'
 
-let orderContainer = document.querySelector('.order-container');
-let basketButton = document.querySelector('.basket-button');
+let $ = (cls) => document.querySelector(`${cls}`)
 
+let orderList = $('.order-list');
+let basketButton = document.querySelectorAll('.order-title')[1];
 basketButton.addEventListener('click', goBasket);
 
 function goBasket(e){
@@ -17,7 +18,7 @@ async function getOrderList(){
         }
         const { data } = await response.json();
         data.map((d) => {
-            createItem(orderContainer, d);
+            createItem(d);
         });
         console.log(data);
     }catch (e) {
@@ -25,29 +26,20 @@ async function getOrderList(){
     }
 }
 
-function createItem(parent, data) {
-    let orderItem = document.createElement('li');
-    let itemNumber = document.createElement('div');
-    let itemPictureDiv = document.createElement('div');
-    let itemPicture = document.createElement('img');
-    let itemName = document.createElement('div');
-    let itemPrice = document.createElement('div');
-    orderItem.className = 'order-item';
-    itemNumber.className = 'item';
-    itemPictureDiv.className = 'picture-div';
-    itemPicture.className = 'order-picture';
-    itemPicture.src = './dummy.png';
-    itemName.className = 'item';
-    itemPrice.className = 'item';
-    itemNumber.textContent = data.id;
-    itemName.textContent = data.name;
-    itemPrice.textContent = data.price;
-    itemPictureDiv.appendChild(itemPicture);
-    orderItem.appendChild(itemNumber);
-    orderItem.appendChild(itemPictureDiv);
-    orderItem.appendChild(itemName);
-    orderItem.appendChild(itemPrice);
-    parent.append(orderItem);
+function createItem(data) {
+    orderList.innerHTML += OrderTemplate(data);
 }
+
+const OrderTemplate = (order) => `
+    <li class="order-item">
+        <div class="item">${order.order_id}</div>
+        <div class="item">
+            <img class="order-picture" src="dummy.png" />
+        </div>
+        <div class="item">${order.order_name}</div>
+        <div class="item">${order.price}</div>
+        <div class="item"><input type="button" class="pick-button" value="담기"/></div>
+    </li>
+`;
 
 getOrderList();
