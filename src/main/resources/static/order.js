@@ -31,19 +31,26 @@ function createItem(data) {
 }
 
 async function putBasket(orderId){
-    let userId = localStorage.getItem("user-id");
-    let response = await fetch(`${URL}/api/user/${userId}/basket/${orderId}`);
-    console.log(`${URL}/api/user/${userId}/basket/${orderId}`)
-    console.log(response);
-    let {message, status_code} = await response.json();
-    if (status_code == 200){
-        alert("상품을 장바구니에 담았습니다.")
-    }
-    else if (status_code == 400){
-        alert("중복된 상품을 담을 수 없습니다.");
-    }
+    try {
+        let userId = localStorage.getItem("user-id");
 
-    console.log(message, status_code);
+        if (!userId){
+            return window.location.href = '/';
+        }
+
+        let response = await fetch(`${URL}/api/user/${userId}/basket/${orderId}`);
+        console.log(`${URL}/api/user/${userId}/basket/${orderId}`)
+        console.log(response);
+        let {message, status_code} = await response.json();
+        if (status_code == 200) {
+            alert(message);
+        } else if (status_code == 400) {
+            alert(message);
+        }
+        console.log(message, status_code);
+    }catch (e){
+        console.error(e);
+    }
 }
 
 const OrderTemplate = (order) => `

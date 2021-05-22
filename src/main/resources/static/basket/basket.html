@@ -5,7 +5,8 @@
         <title>장바구니</title>
         <style>
             body{
-                padding: 16px;
+                margin: 0px;
+                padding: 0px;
             }
             input, li, a {
                 all: unset;
@@ -14,8 +15,10 @@
         <link rel="stylesheet" href="../order.css"></link>
     </head>
     <body>
-        <div>내 장바구니</div>
-        <input class="go-orderList" type="button" value="상품 목록 보기" />
+        <div class="title">
+            <div class="order-title">🧺 내 장바구니</div>
+            <input class="order-title" type="button" value="🥦 상품 목록" />
+        </div>
         <ul class="basket-list">
         </ul>
         <script src="/basket/basket.js" ></script>
