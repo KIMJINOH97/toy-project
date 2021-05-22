@@ -14,4 +14,7 @@ public class PageController {
     public String orders(){
         return "order.html";
     }
+
+    @GetMapping("/basket")
+    public String basket() { return "/basket/basket.html";}
 }
