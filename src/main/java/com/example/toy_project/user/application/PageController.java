@@ -15,6 +15,10 @@ public class PageController {
         return "order.html";
     }
 
+    @GetMapping("/order-item")
+    public String orderItem() {
+        return "orderItem/orderItem.html"; }
+
     @GetMapping("/basket")
     public String basket() { return "/basket/basket.html";}
 }

@@ -1,0 +1,25 @@
+.title {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #ffc107;
+    font-weight: 700;
+}
+
+.item-container{
+    justify-content: center;
+}
+
+.item-picture{
+    display: flex;
+    width: 50%;
+}
+
+.item-content{
+    display: flex;
+    width: 50%;
+}
+
+.item-box{
+    display: flex;
+}
