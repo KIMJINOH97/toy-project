@@ -22,8 +22,12 @@ function createItem(item){
 
 const itemTemplate = (item) => `
     <div class="item-box">
-        <div class="item-picture">사진</div>
-        <div class="item-content">${item.order_name}</div>
+        <div class="item-picture"><img class="picture" src="../dummy.png"/></div>
+        <div class="item-content">
+            <div >${item.order_name}</div>
+            <div >${item.price}</div>
+            <div >${item.count}</div>
+        </div>
     </div>
 `
 

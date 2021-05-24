@@ -7,16 +7,29 @@
 }
 
 .item-container{
+    display: flex;
     justify-content: center;
+    height: 70%;
 }
 
 .item-picture{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 50%;
+}
+
+.picture{
+    width: 50%;
+    height: 50%;
 }
 
 .item-content{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 50%;
 }
 
