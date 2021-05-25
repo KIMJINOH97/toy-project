@@ -58,18 +58,18 @@ function goItem(orderId){
     window.location.href = './order-item';
 }
 
+getOrderList();
+
 const OrderTemplate = (order) => `
     <li class="order-item">
-        <div class="item">${order.order_id}</div>
-        <div class="item">
-            <img class="order-picture" src="dummy.png" />
+        <div class="order-content" type="button" onclick="goItem(${order.order_id})">
+            <div class="item">${order.order_id}</div>
+            <div class="item">
+                <img class="order-picture" src="dummy.png" />
+            </div>
+            <div class="item">${order.order_name}</div>
+            <div class="item">${order.price}</div>
         </div>
-        <div  type="button" onclick="goItem(${order.order_id})" class="item">${order.order_name}</div>
-        <div class="item">${order.price}</div>
-        <div class="item">
-            <input type="button" class="pick-button" value="담기" onclick="putBasket(${order.order_id})"/>
-        </div>
+        <input type="button" class="pick-button" value="담기" onclick="putBasket(${order.order_id})"/>
     </li>
 `;
-
-getOrderList();
