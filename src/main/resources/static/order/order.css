@@ -93,3 +93,10 @@
     text-align: center;
     align-content: center;
 }
+
+.login{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
