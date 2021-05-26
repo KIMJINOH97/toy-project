@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
     @GetMapping("/")
     public String index(){
-        return "index.html";
+        return "index/index.html";
     }
 
     @GetMapping("/order-list")
     public String orders(){
-        return "order.html";
+        return "order/order.html";
     }
 
     @GetMapping("/order-item")
