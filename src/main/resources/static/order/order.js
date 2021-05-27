@@ -79,7 +79,7 @@ const OrderTemplate = (order) => `
         <div class="order-content" type="button" onclick="goItem(${order.order_id})">
             <div class="item">${order.order_id}</div>
             <div class="item">
-                <img class="order-picture" src="../dummy.png" />
+                <img class="order-picture" src=${order.url} />
             </div>
             <div class="item">${order.order_name}</div>
             <div class="item">${order.price}</div>

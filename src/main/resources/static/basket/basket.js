@@ -13,6 +13,7 @@ async function getBasket(){
     const userId = localStorage.getItem("user-id");
     const response = await fetch(`/api/user/${userId}/basket`);
     const { data } = await response.json();
+    console.log(data);
     data.map((d) => {
         createBasket(d);
     });
@@ -57,7 +58,7 @@ const BasketTemplate = (order) => `
         <div class="order-content" type="button" onClick="goItem(${order.order_id})">
             <div class="item">${order.order_id}</div>
             <div class="item">
-                <img class="order-picture" src="dummy.png"/>
+                <img class="order-picture" src=${order.url}/>
             </div>
             <div class="item">${order.order_name}</div>
             <div class="item">${order.price}</div>

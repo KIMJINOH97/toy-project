@@ -15,9 +15,9 @@ titles[1].addEventListener('click', ()=>{
 async function getItem() {
     try {
         let itemNumber = localStorage.getItem('item-number');
-        console.log(itemNumber);
         let response = await fetch(`/api/order-list/${itemNumber}`);
         let { data:item } = await response.json();
+        console.log(item);
         createItem(item);
         console.log(item);
     }catch (e){
@@ -31,7 +31,7 @@ function createItem(item){
 
 const itemTemplate = (item) => `
     <div class="item-box">
-        <div class="item-picture"><img class="picture" src="../dummy.png"/></div>
+        <div class="item-picture"><img class="picture" src=${item.url}/></div>
         <div class="item-content">
             <div class="item-name-box">
                 <div class="item-name">

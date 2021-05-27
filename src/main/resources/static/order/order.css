@@ -88,6 +88,10 @@
     cursor: pointer;
 }
 
+.pick-button:hover{
+    background-color: rgba(13,91,212,1);
+}
+
 .item{
     width: 100px;
     text-align: center;

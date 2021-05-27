@@ -16,6 +16,7 @@ async function login (e){
         })
         inputName.textContent = '';
         let {message, data} = await response.json();
+        console.log(data);
         localStorage.setItem("user-id", data.id);
         localStorage.setItem("user-name", data.name);
 
