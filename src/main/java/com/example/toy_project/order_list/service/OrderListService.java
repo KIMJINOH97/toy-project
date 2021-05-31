@@ -3,6 +3,8 @@ package com.example.toy_project.order_list.service;
 import com.example.toy_project.order_list.application.OrderResponse;
 import com.example.toy_project.order_list.domain.OrderList;
 import com.example.toy_project.order_list.domain.OrderListRepository;
+import com.example.toy_project.picture.domain.Picture;
+import com.example.toy_project.picture.domain.PictureRepository;
 import jdk.jfr.ContentType;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
@@ -22,11 +24,13 @@ import java.util.Optional;
 @Service
 public class OrderListService {
     private final OrderListRepository orderListRepository;
+    private final PictureRepository pictureRepository;
 
     @Transactional
     public OrderResponse save(MultipartFile file, String name, String price, String count) throws IOException {
         byte [] picture = file.getBytes();
-        OrderList orderList = new OrderList(picture, name, Integer.parseInt(price), Integer.parseInt(count));
+        Long pid = pictureRepository.save(new Picture(picture)).getId();
+        OrderList orderList = new OrderList(name, Integer.parseInt(price), Integer.parseInt(count), pid);
         return new OrderResponse(orderListRepository.save(orderList));
     }
 
@@ -47,9 +51,4 @@ public class OrderListService {
         }
     }
 
-    @Transactional(readOnly = true)
-    public ResponseEntity<byte []> findPictureById(Long id){
-        OrderList orderList = orderListRepository.findById(id).get();
-        return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(orderList.getPicture());
-    }
 }

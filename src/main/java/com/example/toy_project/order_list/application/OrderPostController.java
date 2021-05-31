@@ -35,8 +35,4 @@ public class OrderPostController {
         return succeed(orderListService.findById(id),"");
     }
 
-    @GetMapping("/files/{id}")
-    public ResponseEntity<byte[]> findPictureById(@PathVariable Long id){
-        return orderListService.findPictureById(id);
-    }
 }

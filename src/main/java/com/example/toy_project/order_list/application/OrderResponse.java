@@ -15,22 +15,15 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 public class OrderResponse {
     private Long orderId;
     private String orderName;
-    private String url;
     private int price;
     private int count;
+    private String url;
 
     public OrderResponse(OrderList list){
         this.orderId = list.getId();
         this.orderName = list.getName();
         this.price = list.getPrice();
         this.count = list.getCount();
-
-        String fileUrl = ServletUriComponentsBuilder
-                .fromCurrentContextPath()
-                .path("/api/files/")
-                .path(String.valueOf(list.getId()))
-                .toUriString();
-
-        this.url = fileUrl;
+        this.url = list.getUrl();
     }
 }
