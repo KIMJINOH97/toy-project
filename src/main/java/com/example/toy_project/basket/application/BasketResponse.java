@@ -14,12 +14,14 @@ public class BasketResponse {
     private String orderName;
     private Integer price;
     private Integer count;
+    private String url;
 
     public BasketResponse(OrderList orderList){
         this.orderId = orderList.getId();
         this.orderName = orderList.getName();
         this.price = orderList.getPrice();
         this.count = orderList.getCount();
+        this.url = orderList.getUrl();
     }
 
 }
