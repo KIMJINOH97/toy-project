@@ -3,8 +3,7 @@ MySQL 8.0 (AWS RDS 이용)
 
 ## 배포 URL
 AWS EC2 배포 <br>
-base: http://13.125.205.226:8080/ 현재 서버 API 주소<br>
-(프론트 구현 예정)<br>
+base: http://3.34.194.108:8080/ 현재 토이프로젝트 주소<br>
 docker (배포 예정)
 
 
