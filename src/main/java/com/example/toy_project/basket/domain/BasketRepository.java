@@ -10,6 +10,9 @@ import java.util.Optional;
 public interface BasketRepository extends JpaRepository<Basket, Long> {
     List<Basket> findByUserIdOrderByOrderList(Long id);
 
+    @Query("select b from Basket b join fetch b.orderList where b.user.id = ?1 order by b.orderList.id")
+    List<Basket> findByUserIdOrderByOrderId(Long id);
+
     @Query("select b from Basket b where b.user.id = ?1 and b.orderList.id = ?2")
     Optional<Basket> findByUserIdAndOrderId(Long id, Long orderId);
 }

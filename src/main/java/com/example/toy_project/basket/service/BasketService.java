@@ -18,7 +18,7 @@ public class BasketService {
     @Transactional(readOnly = true)
     public List<BasketResponse> findUserBasket(Long id){
         List<BasketResponse> basketResponses = new ArrayList<>();
-        basketRepository.findByUserIdOrderByOrderList(id).forEach((basket)->
+        basketRepository.findByUserIdOrderByOrderId(id).forEach((basket)->
                 basketResponses.add(new BasketResponse(basket.getOrderList()))
         );
         return basketResponses;
