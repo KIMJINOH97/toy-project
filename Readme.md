@@ -4,8 +4,8 @@ MySQL 8.0 (AWS RDS 이용)
 ## 배포 URL
 AWS EC2 배포 <br>
 base: http://3.34.194.108:8080/ 현재 토이프로젝트 주소<br>
-docker (배포 예정)
-
+docker (배포 예정) <br>
+S3 저장소를 왜 이용하는 지 알겠음...(hash table 구조라 사진 로딩 속도가 현저히 빠른거 같다.)
 
 # API 명세서
 
@@ -226,6 +226,7 @@ GET
     {
         "order_id" : 1,
         "order_name" : "감자",
+        "url" : "http://localhost:8080/api/files/2",
         "price" : 10000,
         "count" : 1000
     }
@@ -258,3 +259,27 @@ DELETE
 }
 ```
 
+
+## Picture
+
+#### URL Structure
+`http://.../api/files/:id`
+
+#### Path Variable
+| Variable |  | Type | What |
+|---|---|---|----|
+| **id** | *Required* | String |  basket's Id  |
+
+
+#### Description
+사진 가져오기
+
+#### Method
+get
+
+#### Returns
+```
+{
+    /* 사진 내용 */ 
+}
+```
