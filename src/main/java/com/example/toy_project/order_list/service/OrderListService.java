@@ -51,4 +51,13 @@ public class OrderListService {
         }
     }
 
+    @Transactional(readOnly = true)
+    public List<OrderResponse> orderByPrice(){
+        List<OrderResponse> orderResponses = new ArrayList<OrderResponse>();
+        orderListRepository.findAllByOrderByPriceDesc().forEach((order) ->{
+            orderResponses.add(new OrderResponse(order));
+        });
+        return orderResponses;
+    }
+
 }

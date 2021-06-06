@@ -1,10 +1,13 @@
 package com.example.toy_project.order_list.service;
 
+import com.example.toy_project.order_list.application.OrderResponse;
 import com.example.toy_project.order_list.domain.OrderList;
 import com.example.toy_project.order_list.domain.OrderListRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,6 +49,12 @@ class OrderListServiceTest {
 
         //then
         assertThat(orderListService.findById(2L).getOrderName()).isEqualTo(name2);
+    }
+
+    @Test
+    public void orderByPrice(){
+        List<OrderResponse> orderResponses = orderListService.orderByPrice();
+        assertThat(orderResponses.get(0).getPrice()).isEqualTo(3000);
     }
 
 }

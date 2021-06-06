@@ -35,4 +35,8 @@ public class OrderPostController {
         return succeed(orderListService.findById(id),"");
     }
 
+    @GetMapping("/order-list/price")
+    public ApiForm<List<OrderResponse>> orderByPrice() {
+        return succeed(orderListService.orderByPrice(), "");
+    }
 }
