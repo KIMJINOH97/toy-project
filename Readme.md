@@ -162,7 +162,8 @@ DELETE
 ## Order_list
 
 #### URL Structure
-`http://.../api/order_list`
+`http://.../api/order_list` <br>
+`http://.../api/order_list/price` 가격순 조회(필터링)
 
 #### Description
 주문 리스트 조회
@@ -268,7 +269,7 @@ DELETE
 #### Path Variable
 | Variable |  | Type | What |
 |---|---|---|----|
-| **id** | *Required* | String |  basket's Id  |
+| **id** | *Required* | String |  file's Id  |
 
 
 #### Description
